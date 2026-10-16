@@ -1,0 +1,5 @@
+# Build-Ergebnisse von Maven
+target/
+
+# macOS
+.DS_Store
