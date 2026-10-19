@@ -3,6 +3,9 @@ package de.marc;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.Test;
 
@@ -66,5 +69,28 @@ class MiniDBTest {
 
         assertEquals("Alles gelöscht", antwort);
         assertEquals(0, db.size());
+    }
+
+    @Test
+    void putWirdProtokolliert() {
+        MiniDB db = new MiniDB();
+
+        db.put("Mama", "0176");
+
+        assertEquals(1, db.getProtokoll().size());
+        assertEquals("Mama eingefügt", db.getProtokoll().get(0));
+    }
+
+    @Test
+    void protokollZeichnetAllesAuf() {
+        MiniDB db = new MiniDB();
+
+        db.put("Mama", "0176");
+        db.put("Mama", "0151");
+        db.delete("Mama");
+
+        assertEquals("Mama eingefügt", db.getProtokoll().get(0));
+        assertEquals("Mama geändert", db.getProtokoll().get(1));
+        assertEquals("Mama gelöscht", db.getProtokoll().get(2));
     }
 }

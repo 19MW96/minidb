@@ -1,11 +1,19 @@
 package de.marc;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class MiniDB {
     private HashMap<String, String> daten = new HashMap<>();
 
+    private Protokoll protokoll = new Protokoll();
+
     public void put(String key, String value) {
+        if (exists(key)) {
+            protokoll.add(key + " geändert");
+        } else {
+            protokoll.add(key + " eingefügt");
+        }
         daten.put(key, value);
     }
 
@@ -14,7 +22,9 @@ public class MiniDB {
     }
 
     public String delete(String key) {
-        return daten.remove(key);
+        String geloescht = daten.remove(key);
+        protokoll.add(key + " gelöscht");
+        return geloescht;
     }
 
     public int size() {
@@ -27,6 +37,12 @@ public class MiniDB {
 
     public String clear() {
         daten.clear();
+        protokoll.add("Alles gelöscht");
         return "Alles gelöscht";
     }
+
+    public List<String> getProtokoll() {
+        return protokoll.getEintraege();
+    }
+
 }
