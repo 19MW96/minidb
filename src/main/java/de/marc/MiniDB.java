@@ -16,4 +16,17 @@ public class MiniDB {
     public String delete(String key) {
         return daten.remove(key);
     }
+
+    public int size() {
+        return daten.size();
+    }
+
+    public boolean exists(String key) {
+        return daten.containsKey(key);
+    }
+
+    public String clear() {
+        daten.clear();
+        return "Alles gelöscht";
+    }
 }

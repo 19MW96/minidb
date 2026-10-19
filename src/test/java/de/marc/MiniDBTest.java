@@ -2,7 +2,8 @@ package de.marc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.Test;
 
 class MiniDBTest {
@@ -37,4 +38,33 @@ class MiniDBTest {
         assertEquals("Kevin", db.get("name"));
     }
 
+    @Test
+    void sizeZaehltGespeicherteEintraege() {
+        MiniDB db = new MiniDB();
+        db.put("Mama", "0176");
+        db.put("Papa", "0151");
+
+        assertEquals(2, db.size());
+    }
+
+    @Test
+    void existsErkenntObKontaktDa() {
+        MiniDB db = new MiniDB();
+        db.put("Mama", "0176");
+
+        assertTrue(db.exists("Mama"));
+        assertFalse(db.exists("Papa"));
+    }
+
+    @Test
+    void clearLoeschtAllesUndGibtTextZurueck() {
+        MiniDB db = new MiniDB();
+        db.put("Mama", "0176");
+        db.put("Papa", "0151");
+
+        String antwort = db.clear();
+
+        assertEquals("Alles gelöscht", antwort);
+        assertEquals(0, db.size());
+    }
 }

@@ -1,3 +1,16 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+
+    "editor.inlineSuggest.enabled": false,
+    "editor.quickSuggestions": { "other": false, "comments": false, "strings": false },
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.parameterHints.enabled": false,
+    "editor.inlayHints.enabled": "off",
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
+    "editor.autoSurround": "never",
+    "editor.formatOnType": false,
+    "github.copilot.enable": { "*": false },
+    "chat.agent.enabled": false
 }
