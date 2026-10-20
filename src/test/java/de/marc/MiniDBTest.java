@@ -93,4 +93,16 @@ class MiniDBTest {
         assertEquals("Mama geändert", db.getProtokoll().get(1));
         assertEquals("Mama gelöscht", db.getProtokoll().get(2));
     }
+
+    @Test
+    void speichernUndLadenUeberDatei() throws Exception {
+        MiniDB alt = new MiniDB();
+        alt.put("Mama", "0176");
+        alt.speichern("test-daten.json");
+
+        MiniDB neu = new MiniDB();
+        neu.laden("test-daten.json");
+
+        assertEquals("0176", neu.get("Mama"));
+    }
 }

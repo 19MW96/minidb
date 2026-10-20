@@ -1,7 +1,12 @@
 package de.marc;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
+
+import com.google.gson.Gson;
 
 public class MiniDB {
     private HashMap<String, String> daten = new HashMap<>();
@@ -45,4 +50,15 @@ public class MiniDB {
         return protokoll.getEintraege();
     }
 
+    public void speichern(String dateiname) throws IOException {
+        Gson gson = new Gson();
+        String json = gson.toJson(daten);
+        Files.writeString(Path.of(dateiname), json);
+    }
+
+    public void laden(String dateiname) throws IOException {
+        Gson gson = new Gson();
+        String json = Files.readString(Path.of(dateiname));
+        daten = gson.fromJson(json, HashMap.class);
+    }
 }

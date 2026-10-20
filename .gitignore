@@ -3,3 +3,6 @@ target/
 
 # macOS
 .DS_Store
+
+# Testdateien
+test-daten.json
