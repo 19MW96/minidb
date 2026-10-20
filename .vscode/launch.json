@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Main<minidb>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "de.marc.Main",
+            "projectName": "minidb",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
