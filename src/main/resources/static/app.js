@@ -12,3 +12,8 @@ async function suchen() {
     document.getElementById("ergebnis").innerText = nummer;
 }
 
+async function alleAnzeigen() {
+    let antwort = await fetch("/kontakte");
+    let liste = await antwort.text();
+    document.getElementById("ergebnis").innerText = liste;
+}

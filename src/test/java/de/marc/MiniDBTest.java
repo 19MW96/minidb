@@ -1,12 +1,10 @@
 package de.marc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.Test;
 
 class MiniDBTest {
@@ -104,5 +102,15 @@ class MiniDBTest {
         neu.laden("test-daten.json");
 
         assertEquals("0176", neu.get("Mama"));
+    }
+
+    @Test
+    void AlleGibtAlleKontakteZurueck() {
+        MiniDB db = new MiniDB();
+
+        db.put("Mama", "0176");
+        db.put("Papa", "0151");
+
+        assertEquals(2, db.getAlle().size());
     }
 }

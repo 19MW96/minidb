@@ -40,6 +40,10 @@ public class MiniDB {
         return daten.containsKey(key);
     }
 
+    public HashMap<String, String> getAlle() {
+        return daten;
+    }
+
     public String clear() {
         daten.clear();
         protokoll.add("Alles gelöscht");
