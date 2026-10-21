@@ -1,6 +1,8 @@
 # MiniDB
 
-Eine kleine Datenbank in Java, die ich selbst gebaut habe, um zu lernen, wie Datenbanken und Webserver funktionieren.
+Eine kleine Datenbank in Java, die ich zusammen mit KI gebaut habe, um zu lernen, wie Datenbanken und Webserver funktionieren. Die KI hat mir beim Schreiben geholfen. Mein Ziel ist, jeden Teil zu verstehen und erklären zu können.
+
+Ich mache eine Ausbildung zum Fachinformatiker für Anwendungsentwicklung und stehe beim Programmieren noch am Anfang.
 
 
 ## Was sie kann
