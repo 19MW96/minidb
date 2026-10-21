@@ -60,6 +60,7 @@ public class MiniDB {
         Files.writeString(Path.of(dateiname), json);
     }
 
+    @SuppressWarnings("unchecked")
     public void laden(String dateiname) throws IOException {
         Gson gson = new Gson();
         String json = Files.readString(Path.of(dateiname));
