@@ -17,3 +17,10 @@ async function alleAnzeigen() {
     let liste = await antwort.text();
     document.getElementById("ergebnis").innerText = liste;
 }
+
+function loeschen() {
+    let name = document.getElementById("name").value;
+    fetch("/kontakte/" + name, { method: "DELETE" });
+    document.getElementById("ergebnis").innerText = name + " geloescht";
+}
+
